@@ -1,0 +1,11 @@
+mixin logo(options = {})
+  - const tag = options.href ? "a" : "span";
+  - const aria = options.href ? "Переход на главную страницу" : false;
+  - const href = options.href || false;
+
+  #{tag}.logo(href=href, aria-label=aria)&attributes(attributes)
+    //+icon("icon-logo", 258, 28)
+    +icon("icon-logo-first-part", "89", "20").logo__first-part
+    +icon("icon-logo-first-two", "134", "26").logo__second-part
+
+

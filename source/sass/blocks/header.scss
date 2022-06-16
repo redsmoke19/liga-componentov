@@ -7,14 +7,13 @@
     justify-content: space-between;
   }
 
-  &__logo[href],
-  &__git {
-    transition: fill $trans-default;
+  &__logo[href] {
+    transition: opacity $trans-default;
 
-    @media (hover: hover), screen and (min-width: 0\0) {
+    @media (hover: hover) {
       &:hover,
       &:focus {
-        fill: $color-neon-blue;
+        opacity: 0.5;
       }
     }
   }
@@ -22,9 +21,69 @@
   &__logo {
     margin-right: 40px;
     display: flex;
+
+    &.is-active {
+      z-index: 25;
+    }
   }
 
-  &__git {
+  &__search {
     display: flex;
+    margin: 0 48px 0 auto;
+    position: relative;
+
+    @include vp-1023 {
+      margin: 0;
+      opacity: 0;
+      transition: opacity $trans-default;
+      width: 50%;
+    }
+  }
+
+  &__search-input {
+    border: 1.5px solid $color-ghost-white;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 21px;
+    min-width: 306px;
+    padding: 11px 40px 11px 14px;
+
+    @include vp-1279 {
+      min-width: unset;
+    }
+
+    @include vp-1023 {
+      width: 100%;
+    }
+  }
+
+  &__search-button {
+    background-color: $color-transparent;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+    fill: $color-default-black;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    right: 17px;
+    transform: translate3d(0, -50%, 0);
+    transition: fill $trans-default;
+    width: 20px;
+
+    @media (hover: hover) {
+      &:hover,
+      &:focus {
+        fill: $color-neon-blue;
+      }
+    }
+  }
+
+  &__git-link {
+    display: flex;
+
+    @include vp-1023 {
+      margin: 0 24px 0 auto;
+    }
   }
 }

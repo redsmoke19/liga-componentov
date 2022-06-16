@@ -1,4 +1,7 @@
 import {iosVhFix} from './utils/ios-vh-fix';
+import {initSandwichMenu} from './modules/init-sandwich-menu';
+import {ScrollLock} from './utils/scroll-lock';
+import {initDynamicAdaptive} from './modules/init-dynamic-adaptive';
 
 
 // ---------------------------------
@@ -7,7 +10,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Utils
   // ---------------------------------
-
+  initDynamicAdaptive();
+  window.scrollLock = new ScrollLock();
   iosVhFix();
 
   // Modules
@@ -16,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-
+    initSandwichMenu();
   });
 });
 

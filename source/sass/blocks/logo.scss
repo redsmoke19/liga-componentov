@@ -1,0 +1,33 @@
+.logo {
+  align-items: baseline;
+  display: flex;
+
+  @include vp-1279 {
+    flex-direction: column;
+    transform: scale(0.85);
+  }
+
+  @include vp-1023 {
+    flex-direction: row;
+    transform: scale(1);
+  }
+
+  &__first-part {
+    height: 20px;
+    width: 89px;
+  }
+
+  &__second-part {
+    height: 26px;
+    margin: 0 0 0 9.5px;
+    width: 134px;
+
+    @include vp-1279 {
+      margin: 5px 0 0 0;
+    }
+
+    @include vp-1023 {
+      margin: 0 0 0 9px;
+    }
+  }
+}
